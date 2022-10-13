@@ -11,21 +11,40 @@ export const Register = () => {
     const [Vaccine , setVaccine] = useState()
 
 
-    const data = {
-        unique : Unique ,
-        name : Name,
-        age : Age,
-        designation : Designation,
-        priority : Priority,
-        vaccine : Vaccine,
-    }
+    const data = [
+        {
+            unique : Unique ,
+            name : Name,
+            age : Age,
+            designation : Designation,
+            priority : Priority,
+            vaccine : Vaccine,
+        }
+
+        
+    ]
+
+    
     
 
+    var taskdata = localStorage.setItem("data", JSON.stringify(data)) || []
+
     const handelSubmit = () => {
-
-
-       var  taskdata = localStorage.setItem("data", JSON.stringify(data)) || []
+        const data = 
+            {
+                unique : Unique ,
+                name : Name,
+                age : Age,
+                designation : Designation,
+                priority : Priority,
+                vaccine : Vaccine,
+            }
+        
+        taskdata.push(data);
+        localStorage.setItem("data", JSON.stringify(taskdata))
         alert("Add succesfully")
+
+       
     }
 
 
@@ -105,7 +124,7 @@ export const Register = () => {
 
                 <button
                     onClick={handelSubmit}
-                >Add</button>
+                >Register</button>
             </div>
         </div>
     )
